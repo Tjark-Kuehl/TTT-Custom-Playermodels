@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>TTT Custom Playermodels - Editor</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Top -->
+    <div class="top">
+      <img class="logo" src="img/logo.jpg" alt="Logo">
+      <h1>TTT Custom Playermodels - Editor</h1>
+    </div>
+
+    <!-- Middle -->
+    <div class="middle">
+      <div class="buttonbar">
+        <div>
+          <button class="add" @click="addDetective()">Add Detective</button>
+          <button class="add" @click="addPlayer()">Add Player</button>
+        </div>
+        <button class="export" @click="exportJSON()">Export</button>
+      </div>
+      <div class="table">
+        <div class="header">
+          <div class="header-item">
+            <div class="el">Key</div>
+            <div class="el">Path</div>
+          </div>
+        </div>
+        <div class="body">
+          <!-- Detective -->
+          <div class="body-item" v-for="(val, idx) in detective">
+            <div class="el">Detective{{idx + 1}}</div>
+            <div class="el">
+              <input v-model="detective[idx]" type="text" placeholder="models/test/model.mdl">
+              <img @click="removeDetective(idx)" class="cross" src="img/cross.svg" alt="X">
+            </div>
+          </div>
+          <!-- Player -->
+          <div class="body-item" v-for="(val, idx) in player">
+            <div class="el">Player{{idx + 1}}</div>
+            <div class="el">
+              <input v-model="player[idx]" type="text" placeholder="models/test/model.mdl">
+              <img @click="removePlayer(idx)" class="cross" src="img/cross.svg" alt="X">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export -->
+    <div v-if="exportShown" class="export">
+      <div class="modal">
+        <div class="header">
+          <h2>Export</h2>
+          <img @click="exportShown = false" class="cross" src="img/cross.svg" alt="X">
+        </div>
+        <textarea ref="textarea">{{JSON}}</textarea>
+      </div>
+    </div>
+  </div>
+  <script src="js/vue.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+
+</html>
