@@ -26,7 +26,7 @@ Example:
 You can download the addon via the Steam Workshop
 [Link](http://steamcommunity.com/sharedfiles/filedetails/?id=589400010)
 
-Interactive editor [Link](https://tjark-kuehl.github.io/TTT-Custom-Playermodels/docs/index.html)
+Interactive editor [Link](https://tjark-kuehl.github.io/TTT-Custom-Playermodels/)
 
 ## License
 [The MIT License](LICENSE).
