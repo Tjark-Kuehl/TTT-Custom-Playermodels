@@ -57,13 +57,13 @@ if SERVER then
 	function IsValidPlayermodel(player, model)
 		if player:IsActiveDetective() then
 			for k in pairs(detectiveModels) do
-				if string.match(detectiveModels[k], model, 0) then
+				if string.match(string.lower(detectiveModels[k]), model, 0) then
 					return true
 				end
 			end
 		else
 			for k in pairs(playerModels) do
-				if string.match(playerModels[k], model, 0) then
+				if string.match(string.lower(playerModels[k]), model, 0) then
 					return true
 				end
 			end
